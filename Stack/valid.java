@@ -36,7 +36,7 @@ class valid {
                   st.pop();
               }
           } 
-        return st.size()==0;   
+           return st.size()==0;   
        
         }
 
