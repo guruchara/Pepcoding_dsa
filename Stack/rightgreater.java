@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -7,7 +8,7 @@ public class rightgreater {
     {
         int n=a.length;
         int ans[]=new int[n];
-         
+         Arrays.fill(ans,-1);
     // Note :-  In below stack we insert only index not value 
         Stack<Integer>st=new Stack<Integer>();        
 
