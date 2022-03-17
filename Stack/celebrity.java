@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-import org.xml.sax.InputSource;
 import java.util.*;
 public class celebrity {
 

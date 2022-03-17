@@ -104,16 +104,21 @@ public class infixevaluate {
 
                     operand.push(ans);
                 }
+                
+                operator.push(ch);
             }
+                  
+        }
             while (operator.size() != 0) {
                 char optr = operator.pop(); // +-x/
                 int v2 = operand.pop();
                 int v1 = operand.pop();
-                int ans = calculate(v1, v2, optr);
+                int ans = calculate(v1, v2, optr);    
+                
                 operand.push(ans);
             }
-
             System.out.println(operand.peek());
-        }
+
     }
 }
+//
