@@ -1,5 +1,7 @@
 import javax.swing.plaf.synth.SynthSeparatorUI;
 
+import javafx.scene.chart.ValueAxis;
+
 public class Main
 {
     public static void main(String[] args) {
@@ -39,7 +41,33 @@ public class Main
        // now i want to replace the charachter p 
        System.out.println("replacing String " +p.replace('p','k'));
 
-       //
+       // replaceAll character from String which i want to replace 
+       String g="pepcoding";
+       System.out.println(g.replaceAll("p","k"));
+ 
+       // split use for String convert in array
+       String s1="guru,charan,chouhan,ghughariyakhedi,khargone";
+       String a[]=s1.split(","); // cut based on ,
+       for(String val:a)
+       {
+           System.out.print(val +" ");
+       }
 
+       System.out.println();
+       String k1="  gurucharan   ";
+       System.out.println(k1.trim());
+
+       char ch[]=k1.toCharArray();
+
+       for(char chh:ch)
+       {
+           System.out.print(chh +" ");
+       }
+
+        System.out.println();
+       //valueOf used for getting int value from String
+       String number="103";
+       int n=Integer.valueOf(number);
+       System.out.println(n);
     }
 }
