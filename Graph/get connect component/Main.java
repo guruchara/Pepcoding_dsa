@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
+   
    static class Edge {
       int src;
       int nbr;
@@ -14,26 +15,23 @@ public class Main {
       }
    }
    
-   public static void fillcomp(ArrayList<Edge>graph[],int src,boolean visited[],ArrayList<Integer>comp)
+   public static void fillcomp(ArrayList<Edge>graph[],int src,ArrayList<Integer>l,boolean visited[])
    {
+      visited[src]=true;
 
-         // marks as visited
-         visited[src]=true;
+      l.add(src);
 
-         comp.add(src);
+      for(int i=0;i<graph[src].size();i++)
+      {
+         Edge e=graph[src].get(i);
+         int nbr=e.nbr;
 
-         for(int i=0;i<graph[src].size();i++)
+         if(visited[nbr]==false)
          {
-             Edge e=graph[src].get(i);
-
-             int nbr=e.nbr;
-
-             if(visited[nbr]==false)
-             {
-                // here src will change in nbr neighbour
-                fillcomp(graph,nbr,visited,comp);
-             }
+            fillcomp(graph,nbr,l,visited);            
          }
+      }
+      
    }
    public static void main(String[] args) throws Exception {
       BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -54,21 +52,25 @@ public class Main {
          graph[v2].add(new Edge(v2, v1, wt));
       }
 
-      ArrayList<ArrayList<Integer>> comps = new ArrayList<>();
-      
-      boolean visited[]=new  boolean[vtces];
+      ArrayList<Integer>lm=new ArrayList<>();
 
+      boolean visited[]=new boolean[vtces];
+
+      int c=0;
       for(int v=0;v<vtces;v++)
       {
-         
-           if(visited[v]==false)
-           {
-               ArrayList<Integer>comp = new ArrayList<Integer>();
-               fillcomp(graph,v,visited,comp);
-               comps.add(comp);
-           }
+         ArrayList<Integer>comp=new ArrayList<>();
+         if(visited[v]==false)
+         {
+            fillcomp(graph,v,comp,visited);
+            c++;
+         }
+         if(c>1)
+         {
+            System.out.println(false);
+            return;
+         }
       }
-
-      System.out.println(comps);
+      System.out.println(true);
    }
 }
