@@ -48,11 +48,7 @@ public class Main {
          System.out.println(b[i]);
          int c=hm.get(b[i]);
          hm.put(b[i],c-1);         
-      }
-      else
-      {
-        continue;
-      }
+      }    
     }
    
   }
